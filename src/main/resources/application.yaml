@@ -1,0 +1,44 @@
+app:
+  host-url: http://localhost:8080
+
+spring:
+  init:
+    mode: never
+  #  jpa:
+#    show-sql: true
+#    open-in-view: false
+#
+#    hibernate:
+#      ddl-auto: validate
+#
+#    properties:
+#      hibernate:
+#        format_sql: true
+#
+#  datasource:
+#    driver-class-name: org.postgresql.Driver
+#    url: jdbc:postgresql://localhost:5433/todo
+#    username: postgres
+#    password: postgres
+
+  feign:
+    client:
+      config:
+        default:
+          connectTimeout: 5000
+          readTimeout: 5000
+          loggerLevel: full
+  mvc:
+    async:
+      request-timeout: 60000
+  webflux:
+    async:
+      timeout: 60000
+
+logging:
+  level:
+    root: WARN
+    com.spacepeople: DEBUG
+    org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver: DEBUG
+    org.springframework.web.reactive.function.client: DEBUG
+    org.springframework.web.client: DEBUG
